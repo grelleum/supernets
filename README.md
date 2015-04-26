@@ -10,8 +10,8 @@ allowing you to pipe input from another programs output.<br>
 Each network must be on its own line and in CIDR format.<br>
 supernets works with both IPv4 and IPv6 addresses.<br>
 
--h, --help      displays help.<br>
--v, --verbose   provides a display of how each decision is made.
+`-h, --help     ` displays help.<br>
+`-v, --verbose  ` provides a display of how each decision is made.
 
 
 This is implemented in Python and is intended to be run from the command line.<br>
