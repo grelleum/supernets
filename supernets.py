@@ -3,8 +3,10 @@
 
 """
 
-from __future__ import absolute_import, division
-from __future__ import print_function, unicode_literals
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
+from __future__ import unicode_literals
 
 from collections import defaultdict
 import fileinput
@@ -62,8 +64,7 @@ def add_network_to_prefixes(network):
 
 def process_input(argv):
     """ Read each network from file and compare to the current supernet."""
-    #with open(filename) as input_file:
-    for line in fileinput.input(argv):
+    for line in fileinput.input([x for x in argv[1:] if not x.startswith('-')]):
         line = line.strip().encode().decode()  # Python 2/3 dual support.
         if line == u'':
             continue
@@ -71,7 +72,7 @@ def process_input(argv):
             network = ipaddress.ip_network(line, strict=False)
             add_network(network)
         except ValueError:
-            print('!!! ', network, ' is not a valid network')
+            print('!!! ', line, ' is not a valid network')
 
 
 def process_prefixes(prefix=0):
